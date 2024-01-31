@@ -1,0 +1,23 @@
+.terraform/
+*.tfstate
+terraform.*.backup
+crash.log
+.DS_Store
+.ropeproject/
+
+# Terraform Dependency Lock File
+.terraform.lock.hcl
+
+# Intellij project files
+*.iml
+.idea/
+
+# Scratch files
+.scratch/
+
+# VSCode Settings
+.vscode/settings.json
+.python-version
+
+venv/
+/.venv/
