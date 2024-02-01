@@ -1,0 +1,16 @@
+# This is a comment.
+# Each line is a file pattern followed by one or more owners.
+
+# These owners will be the default owners for application & terraform
+# directory at the root of the repository and any of its subdirectories.
+/application/ @dereban25 @OleksaBaida
+/terraform/ @dereban25 @OleksaBaida
+
+# The owners for .github directories
+/.github/ @oleksiihead @Searge
+
+# The owners for files in the root directory
+/* @dereban25 @Searge
+
+# THe owners for terraform modules
+/terraform/modules/ @mirik12 @OleksaBaida @oleksiihead @gidra39 @vitalibit
