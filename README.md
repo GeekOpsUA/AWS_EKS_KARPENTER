@@ -2,7 +2,9 @@
 
 ## Contribution
 
-Please, install the [EditorConfig](https://editorconfig.org/) plugin for your IDE. The applied rules are:
+Please, install the [EditorConfig](https://editorconfig.org/) plugin for your IDE.
+
+The applied rules are:
 
 - 2 spaces indentation
 - use space for indentation

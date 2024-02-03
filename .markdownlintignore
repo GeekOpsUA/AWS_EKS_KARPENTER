@@ -1,0 +1,4 @@
+.github/*
+application
+terraform
+!terraform/**/*.md

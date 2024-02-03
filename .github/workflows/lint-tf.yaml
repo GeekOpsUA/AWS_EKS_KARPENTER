@@ -1,0 +1,47 @@
+name: Lint terrafom files
+on:
+  push:
+    branches-ignore:
+      - main
+    paths:
+      - 'terraform/**'
+
+jobs:
+  format-hcl-modules:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Check linting of Terraform modules
+        uses: devops-infra/action-tflint@v0.3
+        with:
+          dir_filter: terraform/modules/eks,terraform/modules/iam,terraform/modules/vpc
+          tflint_config: terraform/.tflint.hcl
+
+  format-hcl-envs:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Check linting of Terraform environments
+        uses: devops-infra/action-tflint@v0.3
+        with:
+          dir_filter: terraform/env/dev,terraform/env/stage,terraform/env/tst
+          tflint_config: terraform/.tflint.hcl
+
+  # tfsec:
+  #   name: tfsec
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v4
+  #       with:
+  #         fetch-depth: 0
+  #     - name: Terraform security scan
+  #       uses: triat/terraform-security-scan@v3.0.0
+  #       env:
+  #         GITHUB_TOKEN: ${{ github.token }}
