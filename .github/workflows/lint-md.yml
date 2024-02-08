@@ -1,0 +1,27 @@
+name: Lint Markdown documents
+on:
+  push:
+    branches-ignore:
+      - main
+    paths:
+      - "docs/**"
+
+permissions:
+  contents: read
+  pull-requests: read
+
+jobs:
+  conditional-markdownlint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+
+      - name: Perform lint with markdownlint-cli
+        uses: nosborn/github-action-markdown-cli@v3.3.0
+        with:
+          files: docs/
+          config_file: .markdownlint.yaml
+          dot: false
