@@ -1,15 +1,26 @@
-variable "aws_region" {
-  description = "The AWS region to deploy EKS."
-  type        = string
-}
-
-variable "s3_bucket_name" {
-  description = "The name of the S3 bucket that the user needs access to."
-  type        = string
-}
-
 variable "user_name" {
-  description = "The name of the IAM user to create."
+  description = "Name of the IAM user to be created"
   type        = string
 }
 
+variable "policy_statements" {
+  description = "Map of policy statements for dynamic policy creation"
+  type = list(object({
+    actions   = list(string)
+    resources = list(string)
+    effect    = string
+  }))
+  default = [
+    {
+      actions   = ["s3:ListBucket", "s3:GetObject", "s3:PutObject"],
+      resources = ["arn:aws:s3:::example_bucket", "arn:aws:s3:::example_bucket/*"],
+      effect    = "Allow"
+    },
+    {
+      actions   = ["ecr:GetDownloadUrlForLayer", "ecr:BatchGetImage"],
+      resources = ["arn:aws:ecr:us-east-1:123456789012:repository/example"],
+      effect    = "Allow"
+    }
+
+  ]
+}
