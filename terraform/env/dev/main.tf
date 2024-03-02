@@ -13,25 +13,37 @@ provider "aws" {
 }
 
 resource "aws_instance" "my_web_app" {
-  instance_type = "m3.xlarge"			# <<<<< Try changing this to m5.xlarge to compare the costs
+  instance_type = "m3.xlarge" # <<<<< Try changing this to m5.xlarge to compare the costs
 
   tags = {
     Environment = "development"
-    Service = "web-app"
+    Service     = "web-app"
   }
 
   root_block_device {
-    volume_size = 1000				# <<<<< Try adding volume_type="gp3" to compare costs
+    volume_size = 1000 # <<<<< Try adding volume_type="gp3" to compare costs
   }
 }
 
 resource "aws_lambda_function" "my_hello_world" {
   function_name = "my-hello-world"
-  role = aws_iam_role.my_lambda.arn
-  runtime = "nodejs12.x"
-  memory_size = 512
+  role          = aws_iam_role.my_lambda.arn
+  runtime       = "nodejs12.x"
+  memory_size   = 512
 
   tags = {
     Environment = "Development"
   }
+}
+
+module "vpc" {
+  source = "../../modules/vpc"
+}
+
+#module "iam" {
+#    source = "../../modules/iam"
+#}
+
+module "eks" {
+  source = "../../modules/eks"
 }
