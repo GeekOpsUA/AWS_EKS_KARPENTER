@@ -1,0 +1,36 @@
+{
+	"folders": [
+		{
+			"path": ".."
+		}
+	],
+	"settings": {
+		"yaml.schemas": {
+			"https://json.schemastore.org/github-workflow.json": "/.github/workflows/lint.yml"
+		},
+    "explorer.sortOrder": "type",
+    "editor.rulers": [
+        72,
+        79
+    ],
+	},
+  "extensions": {
+    "recommendations": [
+        // Code helpers
+        "hashicorp.terraform",
+        "hashicorp.hcl",
+        "ms-kubernetes-tools.vscode-kubernetes-tools",
+        "ipedrazas.kubernetes-snippets",
+        "kennylong.kubernetes-yaml-formatter",
+        "yzhang.markdown-all-in-one",
+        "DavidAnson.vscode-markdownlint",
+        "EditorConfig.EditorConfig",
+        "GitHub.copilot",
+        // Visual helpers
+        "eamodio.gitlens",
+        "mhutchie.git-graph",
+        "usernamehw.errorlens",
+        "wayou.vscode-todo-highlight",
+    ]
+}
+}
