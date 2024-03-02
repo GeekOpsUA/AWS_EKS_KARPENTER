@@ -11,7 +11,7 @@ rules:
   MD010: true # Hard tabs should be replaced with spaces
   MD011: true # Reversed link syntax
   MD012: true # Multiple consecutive blank lines
-  MD013: true # Line length should be less than or equal to 80 characters
+  MD013: false # Line length should be less than or equal to 80 characters
   MD014: true # Dollar signs used before commands without showing output
   MD018: true # No space after hash on atx style heading
   MD019: true # Multiple spaces after hash on atx style heading
